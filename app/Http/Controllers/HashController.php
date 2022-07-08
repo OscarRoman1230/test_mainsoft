@@ -12,6 +12,12 @@ class HashController extends Controller
 
     protected string $ciphering = "AES-128-CTR";
     protected string $encryption_iv = "1234567891011121";
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * This function encrypt text by the key granted by user
+     */
     public function encrypt (Request $request): JsonResponse
     {
         try {
@@ -43,6 +49,11 @@ class HashController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * This function decrypt text by the original key used for encrypt text
+     */
     public function decrypt (Request $request): JsonResponse
     {
         try {
